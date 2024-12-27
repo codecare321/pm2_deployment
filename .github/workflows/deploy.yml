@@ -1,0 +1,32 @@
+name: Deploy Node.js App to Vercel
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow on pushes to the "main" branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Specifies the environment to run the job on
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2  # Checks out the code from your repository
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2  # Sets up Node.js
+        with:
+          node-version: '18'  # Specifies the Node.js version
+
+      - name: Install Dependencies
+        run: npm install  # Installs the project dependencies
+
+      - name: Run Tests
+        run: npm test  # Runs tests before deploying
+
+      - name: Deploy to Vercel
+        run: |
+          curl -fsSL https://vercel.com/download | bash
+          vercel --prod --token ${{ secrets.VERCEL_TOKEN }}  # Deploys to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}  # Uses the Vercel token from GitHub secrets

@@ -2,11 +2,12 @@
   "name": "pm2-deployment-app",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "start": "nodemon  src/index.js",
-    "start:pm2": "pm2 start src/index.js --name pm2-deployment-app",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+ "scripts": {
+  "build": "echo \"No build step needed\"",
+  "start": "nodemon src/index.js",
+  "start:pm2": "pm2 start src/index.js --name pm2-deployment-app",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
