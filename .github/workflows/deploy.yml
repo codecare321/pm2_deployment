@@ -25,10 +25,6 @@ jobs:
       # - name: Run Tests
       #   run: npm test  # Runs tests before deploying
 
-      - name: Install Vercel CLI
-        run: |
-          curl -fsSL https://vercel.com/download | bash
-
       - name: Deploy to Vercel
         run: |
           vercel --prod --token ${{ secrets.VERCEL_TOKEN }}  # Deploys to Vercel
