@@ -28,7 +28,6 @@ jobs:
       - name: Install Vercel CLI
         run: |
           curl -fsSL https://vercel.com/download | bash
-        continue-on-error: true # Allows workflow to continue even if the install fails (in case it’s already installed)
 
       - name: Deploy to Vercel
         run: |
