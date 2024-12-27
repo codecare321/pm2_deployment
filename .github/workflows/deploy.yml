@@ -25,9 +25,13 @@ jobs:
       # - name: Run Tests
       #   run: npm test  # Runs tests before deploying
 
+      - name: Install Vercel CLI
+        run: |
+          curl -fsSL https://vercel.com/download | bash # Installs Vercel CLI
+          export PATH="$PATH:$HOME/.vercel/bin" # Adds Vercel CLI to PATH
+          
       - name: Deploy to Vercel
         run: |
-          curl -fsSL https://vercel.com/download | bash  # Installs Vercel CLI
-          vercel --prod --token ${{ secrets.VERCEL_TOKEN }}  # Deploys to Vercel
+          vercel --prod --token ${{ secrets.VERCEL_TOKEN }} # Deploys to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }} # Uses the Vercel token from GitHub secrets

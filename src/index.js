@@ -8,6 +8,9 @@ app.get("/", (req, res) => {
 app.get("/yes", (req, res) => {
   res.send("wow");
 });
+app.get("/no", (req, res) => {
+  res.send("no");
+});
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
