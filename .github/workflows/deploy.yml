@@ -27,11 +27,13 @@ jobs:
 
       - name: Install Vercel CLI
         run: |
-          curl -fsSL https://vercel.com/download | bash # Installs Vercel CLI
-          export PATH="$PATH:$HOME/.vercel/bin" # Adds Vercel CLI to PATH
-          
+          curl -fsSL https://github.com/vercel/vercel/releases/download/v39.2.2/vercel-linux.zip -o vercel-linux.zip
+          unzip vercel-linux.zip
+          sudo mv vercel /usr/local/bin
+          rm vercel-linux.zip
+
       - name: Deploy to Vercel
         run: |
-          vercel --prod --token ${{ secrets.VERCEL_TOKEN }} # Deploys to Vercel
+          vercel --prod --token ${{ secrets.VERCEL_TOKEN }}  # Deploys to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }} # Uses the Vercel token from GitHub secrets
