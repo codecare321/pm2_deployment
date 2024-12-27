@@ -16,15 +16,6 @@ app.get("/no1", (req, res) => {
   res.send("no1");
 });
 
-app.get("/no2", (req, res) => {
-  res.send("no2");
-});
-app.get("/no3", (req, res) => {
-  res.send("no3");
-});
-app.get("/no4", (req, res) => {
-  res.send("no4");
-});
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
