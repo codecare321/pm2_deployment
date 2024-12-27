@@ -27,10 +27,8 @@ jobs:
 
       - name: Install Vercel CLI
         run: |
-          curl -fsSL https://github.com/vercel/vercel/releases/download/v39.2.2/vercel-linux.zip -o vercel-linux.zip
-          unzip vercel-linux.zip
-          sudo mv vercel /usr/local/bin
-          rm vercel-linux.zip
+          curl -fsSL https://vercel.com/download | bash
+        continue-on-error: true # Allows workflow to continue even if the install fails (in case it’s already installed)
 
       - name: Deploy to Vercel
         run: |
